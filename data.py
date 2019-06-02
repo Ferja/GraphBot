@@ -1,10 +1,6 @@
 import pandas as pd
 
 
-
-
-
-
 # retorna un DataFrame amb totes les ciutats amb un minim de poblacio
 def get_cities_data(min_population):
     # parametres
