@@ -56,6 +56,16 @@ def create_graph(max_distance, min_population):
     graph = nx.Graph()
     data_frame = data.get_cities_data(min_population)
     nodes = set(map(lambda x: City(x.Country, x.City, x.Population, round(x.Latitude, 2), round(x.Longitude, 2)), data_frame.itertuples()))
+    cuadrantes = []
+    for i in range(36):
+        cuadrantes.append([])
+        for j in range(18):
+            cuadrantes[i].append([])
+
+    for node in nodes:
+        x, y = node.cuadrante()
+        cuadrantes[x][y].append(node)
+
     nodes_aux = nodes.copy()
     edges = set()
     for node in nodes:
