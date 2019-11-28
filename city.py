@@ -1,3 +1,5 @@
+from math import trunc
+
 
 class City:
     def __init__(self, country, city, population, lat, lon):
@@ -14,3 +16,8 @@ class City:
     # retorna la tupla (lon, lat)
     def lon_lat(self):
         return self.lon, self.lat
+
+    def cuadrante(self):
+        y = trunc(self.lat + 90.0) % 10
+        x = trunc(self.lon + 180.0) % 10
+        return x, y
